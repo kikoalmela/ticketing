@@ -19,3 +19,12 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    # - image: kikomega/client
+    - image: us.gcr.io/ticketing-dev-276910/client
+      context: client
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
