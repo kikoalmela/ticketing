@@ -28,3 +28,12 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
+    # - image: kikomega/tickets
+    - image: us.gcr.io/ticketing-dev-276910/tickets
+      context: tickets
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
