@@ -7,6 +7,7 @@ import { errorHandler, NotFoundError, currentUser } from '@katickets/common';
 import { createTicketRouter } from './routes/new';
 import { showTicketRouter } from './routes/show';
 import { indexTicketRouter } from './routes';
+import { updateTicketRouter } from './routes/update';
 
 export const app = express();
 app.use(json());
@@ -22,6 +23,7 @@ app.use(currentUser);
 app.use(createTicketRouter);
 app.use(showTicketRouter);
 app.use(indexTicketRouter);
+app.use(updateTicketRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
