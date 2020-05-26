@@ -5,6 +5,7 @@ import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@katickets/common';
 
 import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
 
 export const app = express();
 app.use(json());
@@ -18,6 +19,7 @@ app.use(
 app.use(currentUser);
 
 app.use(createTicketRouter);
+app.use(showTicketRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
